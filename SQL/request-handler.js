@@ -1,4 +1,4 @@
-var db = require('./db');
+var db = require('../ORM_Refactor/refactoredDB');
 var serverHelpers = require('./server-helpers');
 // wham! magic.
 var parseData = serverHelpers.collectData;
