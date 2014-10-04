@@ -18,7 +18,6 @@ exports.postMessage = function(req, res) {
         userid: results[0].id,
         roomname: message.roomname
       };
-      console.log(chat, ' : chat' );
       saveMessage(chat.message, chat.userid, chat.roomname, function () {
         serverHelpers.sendResponse(res, message);
       });
@@ -26,7 +25,6 @@ exports.postMessage = function(req, res) {
 
   parseData(req, function(_, msg) {
       message = msg;
-      console.log(message, " : message object");
       findUser(msg.username, function (err, results) {
         // no results/0 results
         if (!results || !results.length) {
@@ -42,7 +40,6 @@ exports.postMessage = function(req, res) {
 
 exports.getMessages = function(req, res) {
   findMessages(function(err, messages) {
-    console.log(messages, 'messages in getMessages');
     serverHelpers.sendResponse(res, messages);
   });
 };
