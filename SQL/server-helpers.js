@@ -12,6 +12,7 @@ exports.collectData = function(request, cb){
     data += chunk;
   });
   request.on("end", function(){
+    console.log(data, " data from collect data");
     cb(null, JSON.parse(data));
   });
 };

@@ -39,14 +39,17 @@ describe("Persistent Node Chat Server", function() {
             },
             function () {
 
-              var queryString = "SELECT * FROM ?"; // SELECT ...
+              var queryString = "SELECT * FROM ??"; // SELECT ...
               var queryArgs = ['messages']; // messages
 
               dbConnection.query( queryString, queryArgs,
                 function(err, results) {
+                  console.log('query string', queryString);
+                  console.log('query args', queryArgs);
+                  console.log('results in test', results);
                   // Should have one result:
                   expect(results.length).to.equal(1);
-                  expect(results[0].text).to.equal("In mercy's name, three days is all I need.");
+                  expect(results[0].Text).to.equal("In mercy's name, three days is all I need.");
                   /* TODO: You will need to change these tests if the
                    * column names in your schema are different from
                    * mine! */
